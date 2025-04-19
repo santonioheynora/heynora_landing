@@ -1,0 +1,27 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 88 88" width="88" height="88" fill="none">
+  <g opacity="100%">
+    <ellipse cx="44" cy="44" rx="44" ry="44" fill="#aa7ceb" filter="url(#filter_dshadow_0_0_0_00000014)"></ellipse>
+  </g>
+  <g opacity="100%">
+    <rect x="20" y="20" width="49" height="49" rx="0" fill="url(#image-pattern-3161fd86-40c0-49d9-983f-f96b982dae25)"></rect>
+    <defs>
+      <pattern id="image-pattern-3161fd86-40c0-49d9-983f-f96b982dae25" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use href="#image_https://assets.api.uizard.io/api/cdn/stream/b256c725-ddff-47ce-9856-dafd70a69eb0.svg" transform="matrix(0.02 0 0 0.02 0 0)"></use>
+      </pattern>
+    </defs>
+  </g>
+  <defs>
+    <filter id="filter_dshadow_0_0_0_00000014" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="bg-fix"></feFlood>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="alpha"></feColorMatrix>
+      <feOffset dx="0" dy="0"></feOffset>
+      <feGaussianBlur stdDeviation="0"></feGaussianBlur>
+      <feComposite in2="alpha" operator="out"></feComposite>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"></feColorMatrix>
+      <feBlend mode="normal" in2="bg-fix" result="bg-fix-filter_dshadow_0_0_0_00000014"></feBlend>
+      <feBlend in="SourceGraphic" in2="bg-fix-filter_dshadow_0_0_0_00000014" result="shape"></feBlend>
+    </filter>
+    <image id="image_https://assets.api.uizard.io/api/cdn/stream/b256c725-ddff-47ce-9856-dafd70a69eb0.svg" width="50" height="50" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA1MCA1MCIgaGVpZ2h0PSI1MCIgd2lkdGg9IjUwIj4KPHBhdGggZmlsbD0iI0FBN0NFQiIgZD0iTTQ1LjEyNzIgMzQuMzc0M0M0Ni4zMjg2IDMxLjY1NjYgNDYuOTk1OCAyOC42NDk5IDQ2Ljk5NTggMjUuNDg3M0M0Ni45OTU4IDEzLjMzNyAzNy4xNDcgMy40ODczIDI0Ljk5NzkgMy40ODczQzEyLjg0ODggMy40ODczIDMgMTMuMzM3IDMgMjUuNDg3M0MzIDM3LjYzNzYgMTIuODQ4OCA0Ny40ODczIDI0Ljk5NzkgNDcuNDg3M0MyOC45MDk0IDQ3LjQ4NzMgMzIuNTgyNSA0Ni40NjYzIDM1Ljc2NTIgNDQuNjc2M0w0NyA0Ny40ODUyTDQ1LjEyNzIgMzQuMzc0M1oiPjwvcGF0aD4KPHBhdGggc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZT0id2hpdGUiIGQ9Ik0xMy45OTkgMjUuNjk0MVYyNS40ODczTTI0Ljk5NzkgMjUuNjk0MVYyNS40ODczTTM1Ljk5NjkgMjUuNjk0MVYyNS40ODczTTQ2Ljk5NTggMjUuNDg3M0M0Ni45OTU4IDI4LjY0OTkgNDYuMzI4NiAzMS42NTY2IDQ1LjEyNzIgMzQuMzc0M0w0NyA0Ny40ODUyTDM1Ljc2NTIgNDQuNjc2M0MzMi41ODI1IDQ2LjQ2NjMgMjguOTA5NCA0Ny40ODczIDI0Ljk5NzkgNDcuNDg3M0MxMi44NDg4IDQ3LjQ4NzMgMyAzNy42Mzc2IDMgMjUuNDg3M0MzIDEzLjMzNyAxMi44NDg4IDMuNDg3MyAyNC45OTc5IDMuNDg3M0MzNy4xNDcgMy40ODczIDQ2Ljk5NTggMTMuMzM3IDQ2Ljk5NTggMjUuNDg3M1oiPjwvcGF0aD4KPC9zdmc+Cg=="></image>
+  </defs>
+</svg>

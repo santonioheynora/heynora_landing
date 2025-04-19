@@ -1,0 +1,27 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 88 88" width="88" height="88" fill="none">
+  <g opacity="100%">
+    <ellipse cx="44" cy="44" rx="44" ry="44" fill="#63b1ff" filter="url(#filter_dshadow_0_0_0_00000014)"></ellipse>
+  </g>
+  <g opacity="100%">
+    <rect x="20" y="20" width="49" height="49" rx="0" fill="url(#image-pattern-a43982cb-03a2-4ae3-8272-8e88f2aef001)"></rect>
+    <defs>
+      <pattern id="image-pattern-a43982cb-03a2-4ae3-8272-8e88f2aef001" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <use href="#image_https://assets.api.uizard.io/api/cdn/stream/ae965ca1-ba0f-43e5-b8ff-1c74b3952849.svg" transform="matrix(0.02 0 0 0.02 0 0)"></use>
+      </pattern>
+    </defs>
+  </g>
+  <defs>
+    <filter id="filter_dshadow_0_0_0_00000014" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="bg-fix"></feFlood>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="alpha"></feColorMatrix>
+      <feOffset dx="0" dy="0"></feOffset>
+      <feGaussianBlur stdDeviation="0"></feGaussianBlur>
+      <feComposite in2="alpha" operator="out"></feComposite>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"></feColorMatrix>
+      <feBlend mode="normal" in2="bg-fix" result="bg-fix-filter_dshadow_0_0_0_00000014"></feBlend>
+      <feBlend in="SourceGraphic" in2="bg-fix-filter_dshadow_0_0_0_00000014" result="shape"></feBlend>
+    </filter>
+    <image id="image_https://assets.api.uizard.io/api/cdn/stream/ae965ca1-ba0f-43e5-b8ff-1c74b3952849.svg" width="50" height="50" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA1MCA1MCIgaGVpZ2h0PSI1MCIgd2lkdGg9IjUwIj4KPHBhdGggc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IndoaXRlIiBkPSJNMjkuMDk3NiA2LjcwNDg1QzI4LjA1MjYgMi40MTQ3OSAyMS45NDc0IDIuNDE0NzkgMjAuOTAyNCA2LjcwNDg1QzIwLjc0NjQgNy4zNDk1MSAyMC40NDAzIDcuOTQ4MjIgMjAuMDA5MiA4LjQ1MjI2QzE5LjU3ODEgOC45NTYzMSAxOS4wMzQgOS4zNTE0NCAxOC40MjE0IDkuNjA1NTJDMTcuODA4NyA5Ljg1OTU5IDE3LjE0NDcgOS45NjU0MiAxNi40ODM0IDkuOTE0NEMxNS44MjIxIDkuODYzMzggMTUuMTgyMSA5LjY1Njk0IDE0LjYxNTcgOS4zMTE5QzEwLjg0MjYgNy4wMTI4NiA2LjUyNDkyIDExLjMzMDQgOC44MjM5OSAxNS4xMDM1QzEwLjMwOSAxNy41NCA4Ljk5MTc1IDIwLjcxOTEgNi4yMTk2NiAyMS4zOTI4QzEuOTI2NzggMjIuNDM1MSAxLjkyNjc4IDI4LjU0MjkgNi4yMTk2NiAyOS41ODI1QzYuODY0NSAyOS43Mzg3IDcuNDYzMzIgMzAuMDQ1IDcuOTY3MzcgMzAuNDc2NEM4LjQ3MTQyIDMwLjkwNzkgOC44NjY0NSAzMS40NTIzIDkuMTIwMjkgMzIuMDY1M0M5LjM3NDEyIDMyLjY3ODMgOS40Nzk1OSAzMy4zNDI1IDkuNDI4MSAzNC4wMDRDOS4zNzY2MiAzNC42NjU1IDkuMTY5NjMgMzUuMzA1NSA4LjgyMzk5IDM1Ljg3MThDNi41MjQ5MiAzOS42NDQ5IDEwLjg0MjYgNDMuOTYyNCAxNC42MTU3IDQxLjY2MzRDMTUuMTgyIDQxLjMxNzggMTUuODIyIDQxLjExMDggMTYuNDgzNSA0MS4wNTkzQzE3LjE0NSA0MS4wMDc4IDE3LjgwOTMgNDEuMTEzMyAxOC40MjIzIDQxLjM2NzFDMTkuMDM1MyA0MS42MjA5IDE5LjU3OTcgNDIuMDE2IDIwLjAxMTEgNDIuNTJDMjAuNDQyNiA0My4wMjQxIDIwLjc0ODkgNDMuNjIyOSAyMC45MDUxIDQ0LjI2NzdDMjEuOTQ3NCA0OC41NjA1IDI4LjA1NTMgNDguNTYwNSAyOS4wOTQ5IDQ0LjI2NzdDMjkuMjUxNiA0My42MjMyIDI5LjU1ODIgNDMuMDI0OCAyOS45ODk4IDQyLjUyMTFDMzAuNDIxMyA0Mi4wMTc0IDMwLjk2NTYgNDEuNjIyNiAzMS41Nzg0IDQxLjM2ODlDMzIuMTkxMyA0MS4xMTUxIDMyLjg1NTMgNDEuMDA5NSAzMy41MTY2IDQxLjA2MDdDMzQuMTc3OSA0MS4xMTE5IDM0LjgxNzggNDEuMzE4NCAzNS4zODQzIDQxLjY2MzRDMzkuMTU3NCA0My45NjI0IDQzLjQ3NTEgMzkuNjQ0OSA0MS4xNzYgMzUuODcxOEM0MC44MzEgMzUuMzA1MyA0MC42MjQ1IDM0LjY2NTQgNDAuNTczMyAzNC4wMDQxQzQwLjUyMjEgMzMuMzQyOCA0MC42Mjc3IDMyLjY3ODggNDAuODgxNSAzMi4wNjZDNDEuMTM1MiAzMS40NTMyIDQxLjUzIDMwLjkwODkgNDIuMDMzNyAzMC40NzczQzQyLjUzNzQgMzAuMDQ1OCA0My4xMzU4IDI5LjczOTIgNDMuNzgwMyAyOS41ODI1QzQ4LjA3MzIgMjguNTQwMiA0OC4wNzMyIDIyLjQzMjMgNDMuNzgwMyAyMS4zOTI4QzQzLjEzNTUgMjEuMjM2NiA0Mi41MzY3IDIwLjkzMDMgNDIuMDMyNiAyMC40OTg5QzQxLjUyODYgMjAuMDY3NCA0MS4xMzM1IDE5LjUyMyA0MC44Nzk3IDE4LjkxQzQwLjYyNTkgMTguMjk3IDQwLjUyMDQgMTcuNjMyNyA0MC41NzE5IDE2Ljk3MTNDNDAuNjIzNCAxNi4zMDk4IDQwLjgzMDQgMTUuNjY5OCA0MS4xNzYgMTUuMTAzNUM0My40NzUxIDExLjMzMDQgMzkuMTU3NCA3LjAxMjg2IDM1LjM4NDMgOS4zMTE5QzM0LjgxOCA5LjY1NzUyIDM0LjE3OCA5Ljg2NDUxIDMzLjUxNjUgOS45MTZDMzIuODU1IDkuOTY3NDggMzIuMTkwNyA5Ljg2MjAyIDMxLjU3NzcgOS42MDgxOEMzMC45NjQ3IDkuMzU0MzUgMzAuNDIwMyA4Ljk1OTMzIDI5Ljk4ODkgOC40NTUyOUMyOS41NTc0IDcuOTUxMjQgMjkuMjUxMSA3LjM1MjQzIDI5LjA5NDkgNi43MDc2TDI5LjA5NzYgNi43MDQ4NVoiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIj48L3BhdGg+CjxwYXRoIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlPSJ3aGl0ZSIgZD0iTTI5Ljg4ODkgMjUuNDg3M0MyOS44ODg5IDI4LjE4NzQgMjcuNzAwMSAzMC4zNzYyIDI1IDMwLjM3NjJDMjIuMjk5OSAzMC4zNzYyIDIwLjExMTEgMjguMTg3NCAyMC4xMTExIDI1LjQ4NzNDMjAuMTExMSAyMi43ODcyIDIyLjI5OTkgMjAuNTk4NCAyNSAyMC41OTg0QzI3LjcwMDEgMjAuNTk4NCAyOS44ODg5IDIyLjc4NzIgMjkuODg4OSAyNS40ODczWiI+PC9wYXRoPgo8L3N2Zz4K"></image>
+  </defs>
+</svg>
