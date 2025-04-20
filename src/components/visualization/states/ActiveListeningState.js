@@ -41,9 +41,9 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
   };
 
   const handleTypingComplete = () => {
-    // Wait 1 second after typing completes before transitioning to chat state
+    // Wait 3 seconds after typing completes before transitioning to chat state
     // This gives the user time to read the question before seeing the response
-    console.log('Typing complete, transitioning to chat state in 1 second...');
+    console.log('Typing complete, transitioning to chat state in 3 seconds...');
     
     // Force transition to chat state after typing completes
     setTimeout(() => {
@@ -54,7 +54,7 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
         console.log('Additional check for chat transition...');
         onChatClick();
       }, 500);
-    }, 1000);
+    }, 3000); // Increased to 3 seconds
   };
 
   return (
@@ -144,8 +144,8 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   onAnimationComplete={() => {
-                    console.log('Motion animation complete, forcing transition');
-                    setTimeout(() => onChatClick(), 2000);
+                    console.log('Motion animation complete');
+                    // Removed auto-transition here to let TypewriterText control the timing
                   }}
                   className="flex-1 text-gray-700 text-center"
                 >

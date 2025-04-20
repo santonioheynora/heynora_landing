@@ -20,7 +20,7 @@ export const useVisualizationState = (onHoverChange) => {
       setCurrentState('inactive');
       
       // Wait for the specified delay before allowing next transition
-      const delay = cycleCount.current === 1 ? 4500 : 10000;
+      const delay = cycleCount.current === 1 ? 4500 : 15000; // Updated to 15 seconds
       setTimeout(() => {
         transitioningRef.current = false; // Unlock transitions
         updateState('activeListening');
@@ -44,7 +44,7 @@ export const useVisualizationState = (onHoverChange) => {
       const timer = setTimeout(() => {
         console.log('Initial transition to activeListening state');
         updateState('activeListening');
-      }, 4500);
+      }, 15000); // Updated to 15 seconds for first visit
       
       return () => clearTimeout(timer);
     }

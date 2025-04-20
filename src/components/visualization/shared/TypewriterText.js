@@ -10,7 +10,7 @@ export const TypewriterText = ({ text, onComplete, className = '' }) => {
       await controls.start({
         width: '100%',
         transition: { 
-          duration: 2,
+          duration: 3.5, // Increased duration for slower typing
           ease: 'easeOut',
         }
       });
@@ -20,7 +20,7 @@ export const TypewriterText = ({ text, onComplete, className = '' }) => {
         if (typeof onComplete === 'function') {
           onComplete();
         }
-      }, 100);
+      }, 500); // Increased delay before calling onComplete
     };
     
     animate();

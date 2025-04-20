@@ -18,6 +18,7 @@ export default function Home() {
   const [isHovering, setIsHovering] = useState(false);
   const [isChatActive, setIsChatActive] = useState(false);
   const [isInactive, setIsInactive] = useState(true);
+  const [vizState, setVizState] = useState('inactive');
 
   // Initialize media recorder
   const initializeRecorder = async () => {
@@ -101,7 +102,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden font-sans">
-      <Header />
+      <Header showWaitlistButton={vizState !== 'inactive'} />
       <GradientBackground />
       
       <div className="relative z-10">
@@ -112,7 +113,7 @@ export default function Home() {
             feedback={feedback}
             onChatStateChange={setIsChatActive}
             onStateChange={(state) => {
-              setIsInactive(state === 'inactive');
+              setVizState(state);
             }}
           />
           
@@ -120,7 +121,10 @@ export default function Home() {
           <div className="absolute w-full h-16 bottom-0 left-0 z-0"></div>
         </div>
         
-        <HeroSection isChatActive={isChatActive} isInactive={isInactive} />
+        <HeroSection 
+          isChatActive={vizState === 'chat'}
+          isInactive={vizState === 'inactive'}
+        />
         
         <FeatureSection />
       </div>
