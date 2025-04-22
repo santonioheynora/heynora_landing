@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeadphonesBase } from '../shared/HeadphonesBase';
-import { Logo } from '../shared/Logo';
 import { SoundWaves } from '../shared/SoundWaves';
 import { TypewriterText } from '../shared/TypewriterText';
 import { GestureGuide } from '../shared/GestureGuide';
@@ -59,35 +58,35 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
 
   return (
     <div 
-      className={`absolute top-0 left-0 w-full h-full transition-all duration-300 ease-in-out ${
+      className={`absolute top-0 left-0 w-full h-full transition-all duration-300 ease-in-out scale-75 sm:scale-85 md:scale-90 lg:scale-100 ${
         show ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
     >
       <HeadphonesBase />
-      <Logo />
       
       {/* MixChat Logo */}
-      <div className="absolute top-[130px] left-1/2 transform -translate-x-1/2">
+      <div className="absolute top-[90px] sm:top-[110px] md:top-[130px] left-1/2 transform -translate-x-1/2">
         <Image
           src="/assets/MixChat Logo.svg"
           alt="MixChat Logo"
-          width={200}
-          height={40}
+          width={180}
+          height={36}
           priority
-          className="select-none"
+          className="select-none w-[160px] sm:w-[180px] md:w-[200px] h-auto"
         />
       </div>
       
       {/* AI Symbol */}
-      <div className="absolute top-[160px] left-1/2 transform -translate-x-1/2">
-        <div className="w-[140px] h-[140px] rounded-full bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 flex items-center justify-center">
+      <div className="absolute top-[120px] sm:top-[140px] md:top-[160px] left-1/2 transform -translate-x-1/2">
+        <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px] rounded-full bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 flex items-center justify-center">
           <Image
             src="/assets/AI Symbol.svg"
             alt="AI Symbol"
-            width={110}
-            height={110}
+            width={80}
+            height={80}
+            sizes="(max-width: 640px) 80px, (max-width: 768px) 95px, 110px"
             priority
-            className="select-none"
+            className="select-none w-[80px] sm:w-[95px] md:w-[110px] h-auto"
           />
         </div>
       </div>
@@ -95,7 +94,7 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
       {/* Pulsing Mic Button Effect */}
       {listening && (
         <motion.div 
-          className="absolute top-[260px] left-1/2 transform -translate-x-1/2 w-[160px] h-[160px] rounded-full bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400"
+          className="absolute top-[200px] sm:top-[230px] md:top-[260px] left-1/2 transform -translate-x-1/2 w-[120px] h-[120px] sm:w-[140px] sm:h-[140px] md:w-[160px] md:h-[160px] rounded-full bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400"
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.7, 0.9, 0.7]
@@ -118,14 +117,15 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
       
       {/* Chat Interface */}
       <div 
-        className="absolute top-[320px] left-1/2 transform -translate-x-1/2 w-[750px] z-10"
+        className="absolute top-[260px] sm:top-[290px] md:top-[320px] lg:top-[320px] left-1/2 transform -translate-x-1/2 w-[85%] sm:w-[460px] md:w-[550px] lg:w-[650px] z-10"
         onClick={(e) => {
           e.stopPropagation();
           handleChatInterfaceClick(e);
         }}
       >
         <div 
-          className="relative w-full h-[60px] rounded-full p-[2px] bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 cursor-pointer"
+          className="relative w-full h-[50px] sm:h-[55px] md:h-[60px] rounded-full p-[2px] bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 cursor-pointer"
+          style={{ minWidth: '100%' }}
           onMouseDown={(e) => e.stopPropagation()}
         >
           <div className="absolute inset-0 bg-white rounded-full m-[1px] flex items-center justify-center px-6">
@@ -134,7 +134,7 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
                 <motion.p
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="font-quicksand text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 text-4xl font-semibold text-center"
+                  className="font-quicksand text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 text-2xl sm:text-3xl md:text-4xl font-semibold text-center"
                 >
                   Ask Nora
                 </motion.p>
@@ -147,12 +147,12 @@ export const ActiveListeningState = ({ show, listening, onChatClick }) => {
                     console.log('Motion animation complete');
                     // Removed auto-transition here to let TypewriterText control the timing
                   }}
-                  className="flex-1 text-gray-700 text-center"
+                  className="flex-1 text-gray-700 text-center px-3 sm:px-5 md:px-7"
                 >
                   <TypewriterText 
                     text="How can I improve my mix?" 
                     onComplete={handleTypingComplete}
-                    className="text-4xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400"
+                    className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400"
                   />
                 </motion.div>
               )}

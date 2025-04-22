@@ -31,3 +31,103 @@ body {
   clip-path: circle(30px at center);
   transform: scale(0.4);
 }
+
+/* Custom grid for DAW wireframe */
+.grid-cols-32 {
+  grid-template-columns: repeat(32, minmax(0, 1fr));
+}
+
+/* Nora gradient text */
+.nora-gradient-text {
+  background: linear-gradient(to right, #f59e0b, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* True glassmorphism text effect */
+.glassy-text {
+  /* White with 90% opacity as base */
+  color: rgba(255, 255, 255, 0.9);
+  
+  /* Font weight controlled in component */
+  
+  /* Inner shadow effect for depth */
+  text-shadow: 
+    /* Soft black shadow with 8% opacity to anchor text */
+    0 1px 2px rgba(0, 0, 0, 0.08),
+    /* Inner light reflection */
+    0 -1px 1px rgba(255, 255, 255, 0.15);
+  
+  /* Subtle letter spacing */
+  letter-spacing: 0.02em;
+  
+  /* Enhanced text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Text border effect - subtle white stroke */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  
+  /* Overlay gradient: Linear light from top-left to bottom-right */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(255, 255, 255, 0.85) 70%,
+    rgba(255, 255, 255, 0.9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Frosted glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  
+  /* Smooth transition */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Positioning */
+  position: relative;
+  z-index: 2;
+  
+  /* Subtle glow without being too bright */
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
+}
+
+.glassy-text:hover {
+  /* Brand color gradient on hover */
+  background: linear-gradient(90deg, 
+    rgba(250, 204, 21, 0.95) 0%, 
+    rgba(249, 115, 22, 0.95) 50%, 
+    rgba(236, 72, 153, 0.95) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  /* Subtle shadow on hover */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  
+  /* Slightly increased letter spacing */
+  letter-spacing: 0.025em;
+  
+  /* Subtle lift effect */
+  transform: translateY(-1px);
+  
+  /* Stronger text border on hover */
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+}
+
+/* Container for glassmorphism effect */
+.glass-container {
+  position: relative;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}

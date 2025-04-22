@@ -4,7 +4,7 @@ const HeadphonesMic = ({ handleMicClick }) => {
   return (
     <div className="relative w-[300px] h-[227px] flex items-center justify-center">
       {/* Headphones */}
-      <svg viewBox="0 0 200 140" className="absolute w-[300px] h-[220px] text-white">
+      <svg viewBox="0 0 200 140" className="absolute w-[300px] h-[220px] text-white" preserveAspectRatio="xMidYMid meet">
         {/* Headband */}
         <path
           d="M52 85.5 C58 30, 138 28, 149 85.5"

@@ -29,10 +29,10 @@ export const TypewriterText = ({ text, onComplete, className = '' }) => {
   return (
     <div className={`relative font-quicksand font-semibold ${className}`}>
       <motion.div 
-        className="whitespace-nowrap"
+        className="whitespace-normal sm:whitespace-nowrap"
         initial={{ width: 0 }}
         animate={controls}
-        style={{ overflow: 'hidden' }}
+        style={{ overflow: 'hidden', maxWidth: '100%' }}
       >
         {text}
       </motion.div>

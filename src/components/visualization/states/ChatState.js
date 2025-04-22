@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { HeadphonesBase } from '../shared/HeadphonesBase';
-import { Logo } from '../shared/Logo';
 import { SoundWaves } from '../shared/SoundWaves';
 import { TypewriterText } from '../shared/TypewriterText';
 import UserBubble from '../shared/UserBubble';
@@ -57,21 +56,20 @@ export const ChatState = ({ show, onComplete }) => {
   
   return (
     <div 
-      className={`absolute top-0 left-0 w-full h-full transition-all duration-300 ease-in-out p-0 ${
+      className={`absolute top-0 left-0 w-full h-full transition-all duration-300 ease-in-out p-0 scale-75 sm:scale-85 md:scale-90 lg:scale-100 -translate-y-[10%] sm:-translate-y-[5%] md:translate-y-0 ${
         show ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
     >
       <HeadphonesBase />
-      <Logo />
       
       {/* Middle Sound Wave */}
-      <div className="absolute top-[174px] left-1/2 transform -translate-x-1/2">
+      <div className="absolute top-[130px] sm:top-[174px] left-1/2 transform -translate-x-1/2 scale-75 sm:scale-85 md:scale-100">
         <Image
           src="/assets/Middle Sound Wave.svg"
           alt="Middle Sound Wave"
           width={120}
           height={80}
-          className="animate-pulse"
+          className="animate-pulse h-auto"
         />
       </div>
       
@@ -79,7 +77,7 @@ export const ChatState = ({ show, onComplete }) => {
       
       {/* User Question Bubble - in its own container */}
       <motion.div
-        className="absolute top-[290px] left-[calc(50%-170px)] transform w-[400px]"
+        className="absolute top-[290px] left-[calc(50%-150px)] sm:left-[calc(50%-160px)] md:left-[calc(50%-170px)] transform w-[300px] sm:w-[350px] md:w-[400px]"
         initial={{ opacity: 0, y: -20 }}
         animate={bubbleControls}
       >
@@ -94,7 +92,7 @@ export const ChatState = ({ show, onComplete }) => {
       {/* Nora Response Bubble - in its own container */}
       {showNoraResponse && (
         <motion.div 
-          className="absolute top-[328px] left-[calc(50%-170px-68px)] transform w-[340px] overflow-visible p-0"
+          className="absolute top-[328px] left-[calc(50%-150px-50px)] sm:left-[calc(50%-160px-60px)] md:left-[calc(50%-170px-68px)] transform w-[260px] sm:w-[300px] md:w-[340px] overflow-visible p-0"
           initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 15 }}
           transition={{ duration: 0.5 }}
@@ -108,7 +106,7 @@ export const ChatState = ({ show, onComplete }) => {
       
       {/* Chat Interface - Pure CSS transition for vertical movement */}
       <div 
-        className={`absolute left-1/2 transform -translate-x-1/2 w-[600px] transition-all duration-500 ${chatMoved ? 'top-[455px]' : 'top-[355px]'}`}
+        className={`absolute left-1/2 transform -translate-x-1/2 w-[280px] sm:w-[400px] md:w-[500px] lg:w-[600px] transition-all duration-500 ${chatMoved ? 'top-[455px]' : 'top-[355px]'}`}
       >
 
         <div className="relative w-full h-[60px] rounded-full p-[2px] bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400">
@@ -119,7 +117,7 @@ export const ChatState = ({ show, onComplete }) => {
               animate={controls}
               transition={{ delay: 0.3 }}
             >
-              <p className="font-quicksand text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 text-4xl font-semibold text-center">
+              <p className="font-quicksand text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-blue-400 text-2xl sm:text-3xl md:text-4xl font-semibold text-center">
                 Ask Nora
               </p>
             </motion.div>

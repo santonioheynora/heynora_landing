@@ -2,8 +2,34 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 export const GestureGuide = () => {
-  // Path for the squiggly line with arrow - arrow appears before interface
-  const path = "M30 50 C 80 50, 100 20, 150 20 S 200 50, 250 50 S 300 20, 321 20 L 341 20 L 331 10 M 341 20 L 331 30";
+  // Fixed path - we'll use static paths instead of React state
+  // Different paths for different screen sizes
+  const mobilePath = "M30 50 C 70 50, 90 20, 140 20 S 190 50, 240 50 S 280 20, 306 20 L 316 20 L 306 10 M 316 20 L 306 30";
+  const tabletPath = "M10 50 C 80 50, 120 20, 170 20 S 240 50, 310 50 S 370 20, 401 20 L 421 20 L 411 10 M 421 20 L 411 30";
+  
+  // Use appropriate path based on screen size
+  const [currentPath, setCurrentPath] = React.useState(mobilePath);
+  
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setCurrentPath(mobilePath);
+      } else {
+        setCurrentPath(tabletPath);
+      }
+    };
+    
+    // Set initial path
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  // No state management needed
 
   // Animation for drawing the path
   const pathAnimation = {
@@ -36,7 +62,7 @@ export const GestureGuide = () => {
 
   return (
     <motion.div
-      className="absolute left-[-629px] top-[320px] w-[600px] h-[100px]"
+      className="absolute left-[-220px] sm:left-[-350px] md:left-[-400px] lg:left-[-450px] top-[260px] sm:top-[290px] md:top-[320px] w-[300px] sm:w-[450px] md:w-[500px] lg:w-[550px] h-[100px]"
       initial="hidden"
       animate="visible"
       style={{ zIndex: 30, pointerEvents: 'none' }}
@@ -49,13 +75,17 @@ export const GestureGuide = () => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <motion.path
-          d={path}
+          d={currentPath}
           stroke="url(#gestureGradient)"
           strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
           fill="none"
           variants={pathAnimation}
+          className="scale-[1.2] sm:scale-100 md:scale-100 lg:scale-100"
+          style={{
+            transformOrigin: 'left center'
+          }}
         />
         <defs>
           <linearGradient id="gestureGradient" x1="0" y1="0" x2="1" y2="0">
@@ -65,10 +95,10 @@ export const GestureGuide = () => {
         </defs>
       </svg>
       <motion.div
-        className="absolute right-[230px] top-[-30px]"
+        className="absolute right-[65px] sm:right-[45px] md:right-[60px] lg:right-[70px] top-[-23px] sm:top-[-23px]"
         variants={textAnimation}
       >
-        <div className="text-base font-quicksand font-semibold bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-transparent bg-clip-text">
+        <div className="text-sm sm:text-base font-quicksand font-semibold bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-transparent bg-clip-text">
           Click me!
         </div>
       </motion.div>

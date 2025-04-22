@@ -1,26 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { Typewriter } from 'react-simple-typewriter';
-import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import ChatMessageDisplay from './ChatMessageDisplay';
 
-const HeroSection = ({ isChatActive, isInactive }) => {
-  const [headlinePosition, setHeadlinePosition] = useState(-100); // Start at inactive position
+const HeroSection = ({ isChatActive, isInactive, feedback, visualizationComponent }) => {
+  const headlineControls = useAnimation();
   const [isFirstCycle, setIsFirstCycle] = useState(true);
   const [containerMargin, setContainerMargin] = useState(0);
   const windowSize = useWindowSize(); // Get current window dimensions
-
-
-  useEffect(() => {
-    // Only update position when there's a real state change
-    if (isChatActive) {
-      setHeadlinePosition(100);
-    } else if (isInactive) {
-      setHeadlinePosition(-100);
-    } else {
-      setHeadlinePosition(0);
-    }
-  }, [isChatActive, isInactive]);
 
   // Track if we've completed the first animation cycle
   useEffect(() => {
@@ -33,89 +22,59 @@ const HeroSection = ({ isChatActive, isInactive }) => {
     }
   }, [isChatActive, isFirstCycle]);
 
-  // Adjust container margin based on state and screen size
+  // Simple responsive margin adjustment based on screen size
   useEffect(() => {
-    if (!isInactive) {
-      // If in chat state, keep at default position
-      if (isChatActive) {
-        setContainerMargin(0);
-        return;
-      }
-      
-      // For active listening state, apply responsive positioning
-      const viewportHeight = windowSize.height || window.innerHeight;
-      const baseActiveMargin = -25; // Base margin for small screens
-      
-      // Adjust margin based on screen height for active listening state
-      if (viewportHeight >= 1200) { // Large screens
-        setContainerMargin(baseActiveMargin * 2.5); // -62.5px
-      } else if (viewportHeight >= 900) { // Medium-large screens
-        setContainerMargin(baseActiveMargin * 2); // -50px
-      } else if (viewportHeight >= 700) { // Medium screens
-        setContainerMargin(baseActiveMargin * 1.5); // -37.5px
-      } else { // Small screens
-        setContainerMargin(baseActiveMargin); // -25px
-      }
-      return;
-    }
-    
-    // Calculate responsive margin based on viewport height
-    const baseMargin = -78; // Base margin for medium screens (increased from -65 to -78)
     const viewportHeight = windowSize.height || window.innerHeight;
     
     // Adjust margin based on screen height
     if (viewportHeight >= 1200) { // Large screens
-      setContainerMargin(baseMargin * 1.5); // More negative margin (moves up more)
+      setContainerMargin(0); // No margin needed on large screens
     } else if (viewportHeight >= 900) { // Medium-large screens
-      setContainerMargin(baseMargin * 1.2);
+      setContainerMargin(0);
     } else if (viewportHeight <= 700) { // Small screens
-      setContainerMargin(baseMargin * 0.7); // Less negative margin (moves up less)
+      setContainerMargin(0); // No negative margin on small screens to prevent header overlap
     } else { // Medium screens (default)
-      setContainerMargin(baseMargin);
+      setContainerMargin(0);
     }
-  }, [isInactive, isChatActive, windowSize.height]);
+  }, [windowSize.height]);
 
   return (
     <div 
-      className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4"
+      className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-3 sm:px-4 pt-20 sm:pt-24 md:pt-20 lg:pt-16"
       style={{ marginTop: `${containerMargin}px` }} // Apply margin to entire container
     >
-
-      
-      {/* HEADLINE (Large, Bold, White or Subtle Gradient) */}
-      <motion.h2 
-        className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-wide max-w-6xl mx-auto leading-tight"
-        initial={false}
-        animate={{ 
-          translateY: headlinePosition
-        }}
-        transition={{ 
-          duration: 0.5, 
-          ease: [0.16, 1, 0.3, 1],
-          delay: 0
-        }}
-        style={{ marginTop: '-260px' }}
-      >
-        Real-time mix feedback. From your new creative sidekick.
-      </motion.h2>
-      
-      {/* TYPEWRITER (Secondary Focus) with different positioning based on state */}
-      <div className={`transition-all duration-500 ease-in-out ${
-        isInactive ? 'mt-[-80px]' : /* Further reduced from -60px to -80px for inactive state */
-        isChatActive ? 'mt-[120px]' : 
-        'mt-[10px]' /* Reduced from 70px to 10px for active listening state */
-      }`}>
-        <motion.p 
-          className="text-xl md:text-2xl font-normal text-gray-300 leading-relaxed max-w-3xl mx-auto h-[90px]"
+      {/* Main content container with fixed spacing */}
+      <div className="flex flex-col items-center">
+        {/* 1. HEADLINE (Large, Bold, Glassy Modern Look) */}
+        <motion.h2 
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-wide max-w-xs sm:max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto leading-tight sm:leading-tight glassy-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
+          style={{ 
+            marginTop: '30px', // Ensure proper spacing from header
+            marginBottom: '5px', // Reduced spacing to bring typewriter closer
+            fontFamily: 'Quicksand, sans-serif',
+            padding: '0.5rem sm:0.75rem',
+            fontWeight: '600',
+            minHeight: '60px' // Ensure minimum height to prevent collapsing
+          }}
+        >
+          Real-time mix feedback for your bedroom studio.
+        </motion.h2>
+        
+        {/* Typewriter text moved directly under headline */}
+        <motion.p 
+          className="text-sm sm:text-lg md:text-xl lg:text-2xl font-normal text-gray-300 leading-tight max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
         >
           <Typewriter
             key={`${isInactive}-${isChatActive}-${isFirstCycle}`}
             words={[
-              "Hey, I’m Nora. I listen while you work and give mix tips, structure ideas, and creative support. Invite me to your sessions — I promise I won’t be a bother.",
-              "Get help arranging your mixes.",
+              "Faster feedback, better mixes, fewer creative blocks.",
+              "A creative companion for every step of your creative process.",
               "Your new music partner, in rhyme and rhythm."
             ]}
             loop={!isInactive}
@@ -125,6 +84,42 @@ const HeroSection = ({ isChatActive, isInactive }) => {
             cursor={false}
           />
         </motion.p>
+        
+        {/* 2. HeadphoneVisualization - Now placed directly below the headline */}
+        <div className="relative mb-6 sm:mb-8 md:mb-12 lg:mb-16 -mt-2 sm:-mt-4 md:-mt-6 w-full max-w-[320px] sm:max-w-[420px] md:max-w-[520px] lg:max-w-[600px] mx-auto overflow-visible"
+          style={{
+            transform: 'scale(0.9)',
+            transformOrigin: 'center center',
+            height: 'auto',
+            minHeight: '300px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <div className="w-full h-full flex items-center justify-center overflow-visible">
+            {visualizationComponent}
+          </div>
+          
+          {/* Invisible protective area to prevent hover glitches */}
+          <div className="absolute w-full h-16 bottom-0 left-0 z-0"></div>
+        </div>
+        
+        {/* 3. CTA Button (GetEarlyAccessButton) */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          style={{
+            marginTop: isInactive ? (windowSize.width < 640 ? '-110px' : windowSize.width < 1024 ? '-95px' : '-140px') : (isChatActive ? '120px' : '-20px'), // Position based on state
+            marginBottom: '30px',
+            transition: 'margin-top 0.5s ease'
+          }}
+          className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[450px] mx-auto"
+
+        >
+          <ChatMessageDisplay feedback={feedback} />
+        </motion.div>
       </div>
     </div>
   );
